@@ -1,4 +1,4 @@
-package com.androiddevs.mvvmnewsapp
+    package com.androiddevs.mvvmnewsapp
 
 
 import androidx.lifecycle.MutableLiveData
@@ -23,7 +23,6 @@ val breakingNews : MutableLiveData<Resources<NewsResponse>> = MutableLiveData()
         breakingNews.postValue(Resources.Loading())
         val response = newsRepo.getbreakinnews(countrycode,page_break)
         breakingNews.postValue(handlebreakingreponse(response))
-
 
     }
     val searchNews : MutableLiveData<Resources<NewsResponse>> = MutableLiveData()

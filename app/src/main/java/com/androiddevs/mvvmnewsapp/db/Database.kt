@@ -15,15 +15,15 @@ import androidx.room.Database
 @TypeConverters(converters::class)
 abstract class ADatabase:RoomDatabase() {
 
-    abstract fun getDoa():AticleDoa
+    abstract fun getDoa(): AticleDoa
 
-    companion object{
+    companion object {
         @Volatile
-        private var instance:ADatabase? = null
+        private var instance: ADatabase? = null
         private val LOCK = Any()
 
-        operator fun invoke(context: Context) = instance?:synchronized(LOCK){
-            instance ?: createDatabase(context).also{
+        operator fun invoke(context: Context) = instance ?: synchronized(LOCK) {
+            instance ?: createDatabase(context).also {
                 instance = it
             }
         }
@@ -32,7 +32,7 @@ abstract class ADatabase:RoomDatabase() {
             context.applicationContext,
             ADatabase::class.java,
             "article_db.db"
-        ) .fallbackToDestructiveMigration().build()
+        ).fallbackToDestructiveMigration().build()
 
     }
 

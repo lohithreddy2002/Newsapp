@@ -26,6 +26,8 @@ class BreakingNewsFragment:Fragment(R.layout.fragment_breaking_news) {
 
         setrecycle()
 
+
+
         nadapter.setOnItemClickListner {
             val bundle = Bundle().apply {
                 putSerializable("article",it)
